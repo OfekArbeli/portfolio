@@ -1,0 +1,21 @@
+@import '../../../mixins.scss';
+
+.interduce{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.headline{
+    text-align: center;
+}
+
+.orange-marker{
+    background-color: $light-orange;
+}
+
+.fa-angle-down{
+    position: absolute;
+    bottom: 20px;
+    color: $purple;
+}

@@ -1,0 +1,25 @@
+<section>
+    <div class="left-column">
+        <p [ngClass]="projectsService.selected?'get-out':'get-in'">
+            here are my projects
+        </p>
+        <p [ngClass]="[projectsService.selected?'get-in':'get-out','short-brief']">
+            <ng-container *ngIf="projectsService.selectedProject">
+                {{projectsService.selectedProject.shortBrief}}
+            </ng-container>
+        </p>
+    </div>
+    <div class="right-column">
+        <div class="grid">
+            <app-project projectName="i-load" [project]="projectsService.projects[0]" class="top-left"></app-project>
+            <app-project projectName="i-load" [project]="projectsService.projects[0]" class="top-center"></app-project>
+            <app-project projectName="i-load" [project]="projectsService.projects[0]" class="top-right"></app-project>
+            <app-project projectName="i-load" [project]="projectsService.projects[0]" class="bottom-left"></app-project>
+            <app-project projectName="i-load" [project]="projectsService.projects[0]" class="bottom-center"></app-project>
+            <app-project projectName="i-load" [project]="projectsService.projects[0]" class="bottom-right"></app-project>
+        </div>
+    </div>
+</section>
+
+
+

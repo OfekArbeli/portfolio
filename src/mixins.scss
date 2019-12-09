@@ -1,0 +1,31 @@
+@mixin center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$white: #fcfcfc;
+$black: #1f1f1f;
+$gray: #b8b8b8;
+$purple: #4f3f50;
+$turq: #ceefe1;
+$orange: #f7bb7c;
+$light-orange: #f9cc9d;
+$light-pink: #ffcbb7;
+
+$pink: rgb(255, 163, 240);
+
+$green: #7cf7b0;
+$light-green: #9df9c4;
+
+$yellow: #f7e47c;
+$light-yellow: #f9eb9d;
+
+$red: #f77c7f;
+$light-red: #f99d9f;
+
+$blue: #7ca4f7;
+$light-blue: #9dbbf9;
+
+$hue-purple: #a47cf7;
+$light-purple: #bb9df9;

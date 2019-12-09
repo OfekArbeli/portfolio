@@ -1,0 +1,214 @@
+@import '../../../mixins.scss';
+
+.right-column{
+    // flex-direction: column;
+    // flex-wrap: wrap;
+    // padding: 50px 2px 50px 2px;
+}
+
+.left-column{
+    overflow: hidden;
+}
+.grid{
+    position: relative;
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: 240px 240px 240px;
+    // border: 2px solid blue;
+}
+
+
+.video-container{
+    width: 80%;
+    // padding: 30px;
+    max-width: 800px;
+    // height: 60%;
+    // background-color: $gray;
+    // box-shadow: 14px 14px 26px -18px $light-orange, -14px -14px 26px -18px $turq;
+    position: relative;
+    border-radius: 10px;
+    @include center-center;
+    flex-direction: column;
+}
+
+.control-panel{
+    position: relative;
+    top: -20px;
+    background-color: $orange;
+    margin-bottom: -20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.play{
+    // border: 2px solid white;
+    transition: all 0.4s ease-in-out;
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    margin: 4px 10px 4px 10px;
+    background-color: $light-orange;
+    cursor: pointer;
+    &:hover{
+        background-color: $light-pink;
+    }
+}
+
+.current-video{
+    width: 100%;
+    background-color: $purple;
+    border-radius: 10px;
+}
+
+.projects-scroller{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info{
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    background-color: $orange;
+    transition: all 0.4s ease-in-out;
+}
+
+.close{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+        background-color: $light-orange;
+        cursor: pointer;
+    }
+}
+
+.open{
+    background-color: $light-orange;
+    width: 110%;
+    height: 110%;
+}
+
+.fa-info{
+    font-size: 14pt;
+}
+
+p{
+    position: absolute;
+    // border: 2px solid blue;
+    display: inline-block;
+}
+
+.short-brief{
+    width: 90%;
+    max-width: 280px;
+}
+// .details{
+//     animation: slide-in-blurred-right 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+// }
+
+.get-out{
+    animation: slide-out-blurred-left 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
+}
+
+.get-in{
+    animation: slide-in-blurred-right 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+@keyframes slide-in-blurred-right {
+    0% {
+      -webkit-transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+              transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+      -webkit-transform-origin: 0% 50%;
+              transform-origin: 0% 50%;
+      -webkit-filter: blur(40px);
+              filter: blur(40px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+              transform: translateX(0) scaleY(1) scaleX(1);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+      -webkit-filter: blur(0);
+              filter: blur(0);
+      opacity: 1;
+    }
+}
+@keyframes slide-out-blurred-left {
+    0% {
+      -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+              transform: translateX(0) scaleY(1) scaleX(1);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+      -webkit-filter: blur(0);
+              filter: blur(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateX(-1000px) scaleX(2) scaleY(0.2);
+              transform: translateX(-1000px) scaleX(2) scaleY(0.2);
+      -webkit-transform-origin: 100% 50%;
+              transform-origin: 100% 50%;
+      -webkit-filter: blur(40px);
+              filter: blur(40px);
+      opacity: 0;
+    }
+}
+
+// .top-left{
+//     :host ::ng-deep .open{
+//         position: relative;
+//         bottom:100%; left:0;
+//         background-color: gray;
+//     }
+// }
+
+// .top-center{
+//     :host ::ng-deep .open{
+//         position: relative;
+//         bottom:100%; left:50%;
+//         background-color: green;
+//     }
+// }
+
+// .top-right{
+//     :host ::ng-deep .open{
+//         position: relative;
+//         bottom:100%; left:100%;
+//         background-color: yellow;
+//     }
+// }
+
+// .bottom-left{
+//     :host ::ng-deep .open{
+//         position: relative;
+//         bottom:0; left:0;
+//         background-color: pink;
+//     }
+// }
+
+// .bottom-center{
+//     :host ::ng-deep .open{
+//         position: relative;
+//         bottom:0; left:50%;
+//         background-color: red;
+//     }
+// }
+
+// .bottom-right{
+//     :host ::ng-deep .open{
+//         position: relative;
+//         bottom:0; left:100%;
+//         background-color: blue;
+//     }
+// }

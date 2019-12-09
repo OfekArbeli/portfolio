@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=o:200,300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700&display=swap');
+@import './mixins.scss';
+
+body,html{
+    margin: 0;
+    height: 100%;
+    background-color: $white; 
+    box-sizing: border-box;
+}
+
+.root{
+    height: 100%;
+    width: 100%;
+    color: $purple;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 200;
+}
+
+h1{
+    font-family: 'Oswald', sans-serif;
+    margin: 18px 0 18px 0;
+    font-size: 32pt;
+    color: $purple;
+}
+
+h2{
+    margin: 0;
+    font-size: 22pt;
+    color: $purple;
+    font-family: 'Dancing Script', cursive;
+}
+
+.section-container{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+section,.section{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    // flex-wrap: wrap;
+}
+
+.fake-content{
+    height: 100%;
+    width: 100%;
+    background-color: rosybrown;
+}
+
+.left-column{
+    background-color: $turq;
+    width: 30%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+.right-column{
+    width: 70%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+p{
+    line-height: 18pt
+}
+
+button{
+    all: unset;
+}

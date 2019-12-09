@@ -1,0 +1,24 @@
+<div class="project-wrapper">
+    <div [ngClass]="open?'exit show-up':'exit disapear'" (click)="closeProject()">
+        <i class="fas fa-times"></i>
+    </div>
+    <div [ngClass]="['project','anchor-point',open?'open':'close']" (click)="openSection(target)" (mouseenter)="playVideo()"
+        (mouseleave)="stopVideo()">
+        <div class="anchor" #target></div>
+        <div class="video-container">
+            <video class="video" alt="muted" src="../../../assets/videos/I-LOAD.webm" type="video/webm" muted
+                playsinline preload="auto" #videoRef>
+            </video>
+        </div>
+        <div class="project-details">
+            <div class="project-title">
+                <h3 class="project-name">{{project.projectName}} - {{project.projectDate}}</h3>
+                <i *ngIf="project.isLast" class="fas fa-fire-alt"></i>
+            </div>
+        </div>
+        <div class="technologies-container">
+            <app-technology *ngFor="let technology of project.projectInfo.devTechnologies" [technology]="technology">
+            </app-technology>
+        </div>
+    </div>
+</div>

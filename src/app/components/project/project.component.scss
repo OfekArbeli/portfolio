@@ -1,0 +1,338 @@
+@import '../../../mixins.scss';
+
+.project{
+    width: 240px;
+    height: 300px;
+    background-color: white;
+    // margin: 12px;
+    border-radius: 10px;
+    position: absolute;
+    transition: all 0.8s ease-in-out;
+    overflow: hidden;
+    box-sizing: border-box;
+    box-shadow: 0 2px 20px 0 rgba(0,0,0,0.05);
+    transition: box-shadow .3s ease-out, transform .3s ease-out, opacity .2s ease-out, height .3s ease-in-out, width .3s ease-in-out , z-index .8s ease-in-out;
+    transition-delay: .1s;
+    // border: 1px solid white;
+    transform: translateZ(0);
+    padding: 8px;
+    &:hover{
+        opacity: 1 !important;
+        box-shadow: rgba(45,45,45,0.05) 0px 2px 2px, rgba(49,49,49,0.05) 0px 4px 4px, rgba(42,42,42,0.05) 0px 8px 8px, rgba(32,32,32,0.05) 0px 16px 16px, rgba(49,49,49,0.05) 0px 32px 32px, rgba(35,35,35,0.05) 0px 64px 64px;
+        transform: translate(0, -4px);
+        z-index: 999;
+        .video{
+            animation: 0.8s 1 alternate unBlur;
+            animation-fill-mode: forwards;
+        }
+        :host ::ng-deep p{
+            animation: 0.8s 1 alternate colorize;
+            animation-fill-mode: forwards;
+        }
+        .project-name{
+            color: $purple;
+        }
+    }
+    .video{
+        animation: 0.2s 1 alternate blur;
+    }
+}
+
+.open{
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    .video{
+        width: 100%;
+    }
+}
+
+:host-context(.top-left) .anchor-point {
+    top:0; left:0;
+}
+
+:host-context(.top-center) .anchor-point {
+    top:0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+:host-context(.top-right) .anchor-point {
+    top:0; right:0;
+}
+
+:host-context(.bottom-left) .anchor-point {
+    bottom:0; left:0;
+}
+
+:host-context(.bottom-center) .anchor-point {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+:host-context(.bottom-right) .anchor-point {
+    bottom:0; right:0;
+}
+
+
+
+.close{
+    // width: 200px;
+    cursor: pointer;
+    width: 240px;
+    height: 300px;
+    z-index: 0;
+}
+
+.trigger{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 999;
+}
+
+.anchor{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    // background-color: red;
+}
+
+.video-container{
+    @include center-center;
+    width: 100%;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    position:relative;
+    z-index:1;  
+}
+
+.radius-wrapper{
+    border-radius: 20px;
+    border: 2px solid rgb(255, 0, 0);
+}
+
+.video{
+    transition: all 0.4s ease-in-out;
+    width: 120%;
+    @include center-center;
+    opacity: 0.5;
+    transition: 0.4s width ease-in-out;
+    filter:grayscale(100%) blur(4px);
+}
+
+
+@keyframes unBlur {
+    from {
+        filter:grayscale(100%) blur(2px);
+        opacity: 0.5;
+    }
+  
+    to {
+        filter:grayscale(0%) blur(0px);
+        opacity: 1;
+    }
+  }
+@keyframes blur {
+    from {
+        filter:grayscale(0%) blur(0px);
+        opacity: 1;
+    }
+
+    to {
+        filter:grayscale(100%) blur(2px);
+        opacity: 0.5;
+    }
+}
+
+@keyframes colorize {
+    from{
+        filter: saturate(0%);
+        opacity: 0.5;
+    }
+    to{
+        filter: saturate(100%);
+        opacity: 1;
+    }
+}
+
+@keyframes unColorize {
+    from{
+        filter: saturate(100%);
+        opacity: 1;
+    }
+    to{
+        filter: saturate(0%);
+        opacity: 0.5;
+    }
+}
+
+.project-name{
+    // border: 2px solid blue;
+    display: inline-block;
+    padding: 6px;
+    text-align: center;
+    border-radius: 10px;
+    color: $gray;
+    margin: 10px;
+    transition: 0.2s color ease-in-out;
+}
+
+.project-details{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    p{
+        margin: 0;
+    }
+}
+
+.project-title{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.technologies{
+    width: max-content;
+    max-height: 60px;
+}
+
+.technologies-container{
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2px 2px 8px 2px;
+    // padding-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+/* width */
+
+.technologies-container::-webkit-scrollbar {
+    height: 8px;
+}
+  
+/* Track */
+.technologies-container::-webkit-scrollbar-track {
+background: $gray; 
+}
+
+/* Handle */
+.technologies-container::-webkit-scrollbar-thumb {
+background: #888; 
+width: 20px;
+}
+
+/* Handle on hover */
+.technologies-container::-webkit-scrollbar-thumb:hover {
+background: #555; 
+}
+
+p{
+    background-color: rgb(255, 163, 240);
+    display: inline-block;
+    border-radius: 50px;
+    font-size: 11pt;
+    padding: 1px 6px 1px 6px;
+    margin: 2px;
+    text-align: center;
+    filter: saturate(0%);
+    opacity: 0.5;
+    animation: 0.8s 1 alternate unColorize;
+    animation-fill-mode: forwards;
+}
+
+.angular{
+    background-color: $red;
+    // color: white;
+}
+
+.typescript{
+    background-color: $blue;
+    // color: white;
+}
+
+.javascript{
+    background-color: $yellow;
+}
+
+.scss{
+    background-color: $red;
+    // color: white;
+}
+
+.css{
+    background-color: $light-blue;
+}
+
+.nodeJS{
+    background-color: $light-green;
+}
+
+.express{
+    background-color: $orange;
+}
+
+
+.mongoDB{
+    background-color: $green;
+}
+
+.mongoose{
+    background-color: $light-purple;
+    // color: white;
+}
+
+.adobe{
+    background-color: $pink;
+}
+
+.show-up{
+    opacity: 1;
+    visibility: visible;
+}
+.disapear{
+    opacity: 0;
+    visibility: hidden;
+}
+.exit{
+    position: absolute;
+    right: -22px;
+    top: -22px;
+    background-color: $light-orange;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    @include center-center;
+    cursor: pointer;
+    transition: 0.8s all ease-in-out;
+}
+
+.project-wrapper{
+    width: 240px;
+    height: 300px;
+}
+
+.fa-fire-alt{
+    // position: absolute;
+    // top: 20px;
+    // left: 20px;
+    color: $light-orange;
+    z-index: 100;
+}
