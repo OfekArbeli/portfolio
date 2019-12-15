@@ -1,0 +1,59 @@
+@import '../../../mixins.scss';
+
+.title{
+    color: $purple;
+    background-color: $light-orange;
+    padding: 6px;
+    display: inline-block;
+    font-family: "Oxygen", sans-serif;
+}
+
+.icon{
+    cursor: pointer;
+    width: 24px;
+    text-align: center;
+    background-color: $light-orange;
+    &:hover{
+        background-color: $orange;
+    }
+}
+
+.title-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mat-card-header-text{
+    margin: 10px 0 0 0;
+}
+
+.contact-wrapper{
+    width: 100%;
+    margin: 8px;
+    max-width: 500px;
+}
+.contact-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.contact-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.form-input{
+    margin-top: 8px;
+    color: $purple !important;
+    textarea{
+        height: 160px;
+    }
+}
+
+.submit{
+    cursor: pointer;
+    &:disabled{
+        cursor: not-allowed;
+    }
+}

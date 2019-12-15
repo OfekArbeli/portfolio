@@ -11,12 +11,11 @@
     </div>
     <div class="right-column">
         <div class="grid">
-            <app-project projectName="i-load" [project]="projectsService.projects[0]" class="top-left"></app-project>
-            <app-project projectName="i-load" [project]="projectsService.projects[0]" class="top-center"></app-project>
-            <app-project projectName="i-load" [project]="projectsService.projects[0]" class="top-right"></app-project>
-            <app-project projectName="i-load" [project]="projectsService.projects[0]" class="bottom-left"></app-project>
-            <app-project projectName="i-load" [project]="projectsService.projects[0]" class="bottom-center"></app-project>
-            <app-project projectName="i-load" [project]="projectsService.projects[0]" class="bottom-right"></app-project>
+            <app-project [project]="projectsService.projects[0]" class="top-left"></app-project>
+            <app-project [project]="projectsService.projects[1]" class="top-center"></app-project>
+            <app-project [project]="projectsService.projects[2]" class="top-right"></app-project>
+            <app-project [project]="projectsService.projects[3]" class="bottom-left"></app-project>
+            <app-project [project]="projectsService.projects[4]" class="bottom-center"></app-project>
         </div>
     </div>
 </section>

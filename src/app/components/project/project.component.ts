@@ -11,14 +11,24 @@ export class ProjectComponent implements OnInit, AfterViewInit{
   @Input() project;
   @ViewChild('videoRef', {static:false}) videoRef: ElementRef;
   open;
+  prograssStyle;
+  fullScreen; 
   constructor(private projectsService:ProjectsService) {
     this.open = false;
+    this.fullScreen = false;
+    this.initprograssStyle()
   }
 
   ngOnInit() {
   }
   ngAfterViewInit(){
     this.videoRef.nativeElement.muted = true;
+  }
+
+  initprograssStyle(){
+    this.prograssStyle = {
+      'width' : 0
+    }
   }
 
   openSection(element : HTMLElement){
@@ -29,6 +39,7 @@ export class ProjectComponent implements OnInit, AfterViewInit{
   }
   closeProject(){
     this.open = false;
+    this.stopVideo();
   }
   playVideo(){
     this.videoRef.nativeElement.play();
@@ -37,8 +48,28 @@ export class ProjectComponent implements OnInit, AfterViewInit{
   }
 
   stopVideo(){
-    this.videoRef.nativeElement.pause();
-    this.videoRef.nativeElement.currentTime = 0;
-    this.projectsService.selected = false;
+    if(!this.open){
+      this.videoRef.nativeElement.pause();
+      this.videoRef.nativeElement.currentTime = 0;
+      this.projectsService.selected = false;
+    }
+  }
+
+  showPrograss(){
+    let currentTime = this.videoRef.nativeElement.currentTime;
+    let duration = this.videoRef.nativeElement.duration;
+    // console.log("currentTime ", currentTime);
+    // console.log("duration ", duration);
+    let width = Math.floor((100 / duration) * currentTime);
+    this.prograssStyle.width = width + '%';
+    console.log(this.prograssStyle.width);
+  }
+
+  setOnFullscreen(){
+    this.videoRef.nativeElement.requestFullscreen();
+  }
+
+  checkIfFullscreenClosed(){
+    this.fullScreen = !this.fullScreen;
   }
 }

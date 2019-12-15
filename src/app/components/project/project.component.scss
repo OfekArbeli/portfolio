@@ -1,5 +1,43 @@
 @import '../../../mixins.scss';
 
+@mixin colorized{
+    opacity: 1 !important;
+    box-shadow: rgba(45,45,45,0.05) 0px 2px 2px, rgba(49,49,49,0.05) 0px 4px 4px, rgba(42,42,42,0.05) 0px 8px 8px, rgba(32,32,32,0.05) 0px 16px 16px, rgba(49,49,49,0.05) 0px 32px 32px, rgba(35,35,35,0.05) 0px 64px 64px;
+    transform: translate(0, -4px);
+    z-index: 999;
+    .video{
+        animation: 0.8s 1 alternate unBlur;
+        animation-fill-mode: forwards;
+    }
+    :host ::ng-deep p{
+        animation: 0.8s 1 alternate colorize;
+        animation-fill-mode: forwards;
+    }
+    .project-name{
+        color: $purple;
+    }
+}
+
+.fa-expand{
+    position: absolute;
+    bottom: 4px;
+    right: 8px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.control-panel{
+    width: 100%;
+    height: 33%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.4s opacity ease-in-out;
+    z-index: 1;
+    background-image: linear-gradient(rgba(255, 0, 0, 0), white);
+}
+
 .project{
     width: 240px;
     height: 300px;
@@ -17,21 +55,7 @@
     transform: translateZ(0);
     padding: 8px;
     &:hover{
-        opacity: 1 !important;
-        box-shadow: rgba(45,45,45,0.05) 0px 2px 2px, rgba(49,49,49,0.05) 0px 4px 4px, rgba(42,42,42,0.05) 0px 8px 8px, rgba(32,32,32,0.05) 0px 16px 16px, rgba(49,49,49,0.05) 0px 32px 32px, rgba(35,35,35,0.05) 0px 64px 64px;
-        transform: translate(0, -4px);
-        z-index: 999;
-        .video{
-            animation: 0.8s 1 alternate unBlur;
-            animation-fill-mode: forwards;
-        }
-        :host ::ng-deep p{
-            animation: 0.8s 1 alternate colorize;
-            animation-fill-mode: forwards;
-        }
-        .project-name{
-            color: $purple;
-        }
+        @include colorized;
     }
     .video{
         animation: 0.2s 1 alternate blur;
@@ -44,6 +68,11 @@
     z-index: 999;
     .video{
         width: 100%;
+    }
+    @include colorized;
+    .video-container:hover .control-panel{
+        opacity: 1;
+        z-index: 999;
     }
 }
 
@@ -126,6 +155,10 @@
     @include center-center;
     opacity: 0.5;
     transition: 0.4s width ease-in-out;
+    border: 1px solid white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
     filter:grayscale(100%) blur(4px);
 }
 
@@ -178,11 +211,10 @@
 .project-name{
     // border: 2px solid blue;
     display: inline-block;
-    padding: 6px;
+    // padding: 6px;
     text-align: center;
-    border-radius: 10px;
     color: $gray;
-    margin: 10px;
+    margin: 0px;
     transition: 0.2s color ease-in-out;
 }
 
@@ -198,8 +230,10 @@
 
 .project-title{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 60px;
 }
 
 .technologies{
@@ -258,21 +292,25 @@ p{
     animation-fill-mode: forwards;
 }
 
+
+.unity{
+    background-color: $light-gray;
+}
 .angular{
     background-color: $red;
     // color: white;
 }
 
-.typescript{
+.typescript , .react, .jQuery, .RDS, .photoshop, .webflow{
     background-color: $blue;
     // color: white;
 }
 
-.javascript{
+.javascript, .step-functions{
     background-color: $yellow;
 }
 
-.scss{
+.scss,.S3,.java{
     background-color: $red;
     // color: white;
 }
@@ -285,16 +323,16 @@ p{
     background-color: $light-green;
 }
 
-.express{
+.express, .aws, .lambdas, .mySql, .illustrator{
     background-color: $orange;
 }
 
 
-.mongoDB{
+.mongoDB, .spring{
     background-color: $green;
 }
 
-.mongoose{
+.mongoose,.after-effect{
     background-color: $light-purple;
     // color: white;
 }
@@ -333,6 +371,43 @@ p{
     // position: absolute;
     // top: 20px;
     // left: 20px;
+    margin-left: 10px;
     color: $light-orange;
     z-index: 100;
+}
+
+.progressBar { 
+    position: relative;
+    background-color:$light-gray;
+    color:#fff; 
+    width:100%; 
+    height:8px;
+    overflow: hidden;
+ }
+ .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color:$gray; // red
+    height:8px;
+    display:inline-block;
+    transition: 2s width linear
+ }
+
+ .about{
+    text-align: left;
+    padding: 10px 30px 10px 30px;
+    box-sizing: border-box;
+    line-height: 26pt;
+    transition: 0.2s opacity ease-in-out 0.2s;
+    // border: 2px solid blue;
+    width: 100%;
+ }
+
+ .about-open{
+    opacity: 1;
+ }
+
+.about-close{
+    opacity: 0;
 }

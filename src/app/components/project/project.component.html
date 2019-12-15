@@ -6,14 +6,26 @@
         (mouseleave)="stopVideo()">
         <div class="anchor" #target></div>
         <div class="video-container">
-            <video class="video" alt="muted" src="../../../assets/videos/I-LOAD.webm" type="video/webm" muted
-                playsinline preload="auto" #videoRef>
+            <video class="video" alt="muted" [src]="'../../../assets/videos/'+project.projectName+'.mp4'" type="video/mp4" muted
+                playsinline preload="auto" 
+                #videoRef [controls]="fullScreen"
+                (fullscreenchange)="checkIfFullscreenClosed()"> //(timeupdate)="showPrograss()"
             </video>
+            <div class="control-panel">
+                <i class="fas fa-expand" (click)="setOnFullscreen()"></i>
+            </div>
         </div>
         <div class="project-details">
+            <!-- <div *ngIf="open" class="progressBar">
+                <span class="progress" [ngStyle]="prograssStyle">
+                </span>
+            </div> -->
             <div class="project-title">
                 <h3 class="project-name">{{project.projectName}} - {{project.projectDate}}</h3>
                 <i *ngIf="project.isLast" class="fas fa-fire-alt"></i>
+            </div>
+            <div [ngClass]="['about',open?'about-open':'about-close']">
+                {{project.projectInfo.users}}
             </div>
         </div>
         <div class="technologies-container">

@@ -8,6 +8,31 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectComponent } from './components/project/project.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { TechnologyComponent } from './components/technology/technology.component';
+import { ContactMeComponent } from './components/contact-me/contact-me.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import {
+  MatButtonModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatBadgeModule,
+  MatSidenavModule,
+  MatListModule,
+  MatGridListModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatRadioModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatChipsModule,
+  MatTooltipModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatCardModule,
+  MatCheckboxModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -16,11 +41,34 @@ import { TechnologyComponent } from './components/technology/technology.componen
     ProjectsComponent,
     ProjectComponent,
     AboutMeComponent,
-    TechnologyComponent
+    TechnologyComponent,
+    ContactMeComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    CommonModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatBadgeModule,
+    MatListModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatChipsModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

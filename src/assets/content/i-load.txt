@@ -1,0 +1,11 @@
+shortBrief: 
+    'I-Load' is a web application created to connect between local 
+    cellular stores to the cellular providers and easily managing SIM's
+     and packages by the users.
+
+theUsers:
+    the agent: this user is the cellular store manager or his employe, they want to quickly suggest packages to a customer
+    and quickly activate a package on a sim card. for that, they gained access to see all of thier SIM's cards, can see the SIM card activation status, and can activate a package on a SIM card.
+
+    the manager: this user is the manager of the web application, he will control all the entities in the system. he will gain access to all the agent functionality,
+    plus, an option to add or remove packages and SIMs from the system, also he will be able to manage all the users in the system.
