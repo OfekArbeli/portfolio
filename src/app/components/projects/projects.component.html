@@ -1,7 +1,10 @@
 <section>
     <div class="left-column">
-        <p [ngClass]="projectsService.selected?'get-out':'get-in'">
-            here are my projects
+        <p #paragraphReplica [ngClass]="['paragraphReplica',isReplicaInView?'slide-in-animation':'slide-out-animation']">
+            take a look at my projects
+        </p>
+        <p #paragraph [ngClass]="['paragraph',isParagraphInView && !projectsService.selected?'slide-in-animation':'slide-out-animation']">
+            take a look at my projects
         </p>
         <p [ngClass]="[projectsService.selected?'get-in':'get-out','short-brief']">
             <ng-container *ngIf="projectsService.selectedProject">

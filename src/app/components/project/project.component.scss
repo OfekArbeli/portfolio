@@ -23,6 +23,7 @@
     bottom: 4px;
     right: 8px;
     padding: 10px;
+    display: none;
     cursor: pointer;
 }
 
@@ -73,6 +74,9 @@
     .video-container:hover .control-panel{
         opacity: 1;
         z-index: 999;
+    }
+    .fa-expand{
+        display: block;
     }
 }
 
@@ -131,6 +135,7 @@
     left: 0;
     width: 100%;
     height: 2px;
+    top: -12vh;
     // background-color: red;
 }
 

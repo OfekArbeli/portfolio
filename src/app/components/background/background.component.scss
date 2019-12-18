@@ -1,0 +1,27 @@
+@import '../../../mixins.scss';
+
+$space-between: 100px;
+
+.background{
+    width: 102vw;
+    height: 102vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: $light-gray;
+}
+
+.coco-tree{
+    width: 20px;
+    padding: 100px 50px;
+    color: $dark-gray;
+}
+
+.coco-tree:nth-child(odd){
+    position: relative;
+    bottom: -100px;
+}

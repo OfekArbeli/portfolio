@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,9 @@ import {FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactMeComponent implements OnInit {
   contactForm: FormGroup;
+  isInView = false;
+  @ViewChild('paragraph', {static:false}) paragraph: ElementRef;
+  
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -54,4 +57,28 @@ export class ContactMeComponent implements OnInit {
   get message(){
     return this.contactForm.get('message');
   }
+
+  isInViewport() : boolean {
+    let bounding = this.paragraph.nativeElement.getBoundingClientRect();
+    return (
+        bounding.top >= 0 &&
+        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+    );
+  }
+
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(event) {
+    if(this.isInViewport()){
+      if(!this.isInView){
+        this.isInView = true;
+      }
+    }
+    else{
+      if(this.isInView){
+        this.isInView = false;     
+      }
+    }
+  }
+
+
 }

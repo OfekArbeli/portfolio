@@ -12,6 +12,7 @@ import { ContactMeComponent } from './components/contact-me/contact-me.component
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+
 import {
   MatButtonModule,
   MatToolbarModule,
@@ -33,6 +34,7 @@ import {
   MatCardModule,
   MatCheckboxModule
 } from '@angular/material';
+import { BackgroundComponent } from './components/background/background.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import {
     ProjectComponent,
     AboutMeComponent,
     TechnologyComponent,
-    ContactMeComponent
+    ContactMeComponent,
+    BackgroundComponent
   ],
   imports: [
     BrowserAnimationsModule,

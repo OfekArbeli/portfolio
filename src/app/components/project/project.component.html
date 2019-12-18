@@ -1,10 +1,10 @@
+<div class="anchor" #target></div>
 <div class="project-wrapper">
     <div [ngClass]="open?'exit show-up':'exit disapear'" (click)="closeProject()">
         <i class="fas fa-times"></i>
     </div>
     <div [ngClass]="['project','anchor-point',open?'open':'close']" (click)="openSection(target)" (mouseenter)="playVideo()"
         (mouseleave)="stopVideo()">
-        <div class="anchor" #target></div>
         <div class="video-container">
             <video class="video" alt="muted" [src]="'../../../assets/videos/'+project.projectName+'.mp4'" type="video/mp4" muted
                 playsinline preload="auto" 

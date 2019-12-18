@@ -76,6 +76,7 @@ h2{
 .section-container{
     width: 100%;
     height: 100%;
+    min-height: 800px;
     display: block;
 }
 
@@ -97,6 +98,7 @@ section,.section{
     background-color: $turq;
     width: 30%;
     height: 100%;
+    min-height: 800px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -108,6 +110,7 @@ section,.section{
 .right-column{
     width: 70%;
     height: 100%;
+    min-height: 800px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -116,7 +119,7 @@ section,.section{
 }
 
 p{
-    line-height: 18pt
+    line-height: 18pt;
 }
 
 button{
@@ -124,3 +127,202 @@ button{
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.get-out{
+    animation: slide-out-blurred-right 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
+}
+
+.get-in{
+    animation: slide-in-blurred-right 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+.slide-in-animation{
+    animation: slide-in-blurred-left 0.8s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+.slide-out-animation{
+    animation: slide-out-blurred-left 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) both;
+}
+
+@keyframes slide-in-blurred-left {
+    0% {
+      transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
+      transform-origin: 100% 50%;
+      filter: blur(40px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0) scaleY(1) scaleX(1);
+      transform-origin: 50% 50%;
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+
+@keyframes slide-in-blurred-right {
+    0% {
+      -webkit-transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+              transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
+      -webkit-transform-origin: 0% 50%;
+              transform-origin: 0% 50%;
+      -webkit-filter: blur(40px);
+              filter: blur(40px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+              transform: translateX(0) scaleY(1) scaleX(1);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+      -webkit-filter: blur(0);
+              filter: blur(0);
+      opacity: 1;
+    }
+}
+
+@keyframes slide-out-blurred-right {
+    0% {
+      transform: translateX(0) scaleY(1) scaleX(1);
+      transform-origin: 50% 50%;
+      filter: blur(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(1000px) scaleX(2) scaleY(0.2);
+      transform-origin: 0% 50%;
+      filter: blur(40px);
+      opacity: 0;
+    }
+  }
+
+@keyframes slide-out-blurred-left {
+    0% {
+      -webkit-transform: translateX(0) scaleY(1) scaleX(1);
+              transform: translateX(0) scaleY(1) scaleX(1);
+      -webkit-transform-origin: 50% 50%;
+              transform-origin: 50% 50%;
+      -webkit-filter: blur(0);
+              filter: blur(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateX(-1000px) scaleX(2) scaleY(0.2);
+              transform: translateX(-1000px) scaleX(2) scaleY(0.2);
+      -webkit-transform-origin: 100% 50%;
+              transform-origin: 100% 50%;
+      -webkit-filter: blur(40px);
+              filter: blur(40px);
+      opacity: 0;
+    }
+}
+
+//mobile phones
+@media only screen and (max-width: 1200px) {
+    .section-container{
+        height: auto;
+        min-height: 100%;
+    }
+    section,.section{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        // flex-wrap: wrap;
+    }
+    .right-column{
+        height: auto;
+        width: 100%;
+        min-height: 80vh;
+        flex-direction: column;
+        padding-top: calc(30px + 5vh);
+        padding-bottom: calc(30px + 5vh);
+        .about-me-text{
+            height: auto !important;
+            width: 100% !important;
+            max-width: 240px !important;
+        }
+        .headline{
+            height: 330px !important;
+        }
+        .contact-wrapper{
+            width: 96% !important;
+            margin: 8px !important;
+            max-width: 500px !important;
+            margin-top: calc(30px + 10vh) !important;
+            margin-bottom: calc(30px + 10vh) !important;
+        }
+        .content{
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            h1{
+                font-size: calc(18pt + 0.5vw);
+            }
+        }
+        .grid{
+            // grid-template-columns: 240px !important;
+            display: flex !important;
+            justify-content: flex-start !important;
+            align-items: center !important;
+            flex-direction: column !important;
+            width: 100%;
+            .project{
+                position: relative;
+                top:0;
+                right: 0;
+                left: 0;
+                margin: auto;
+            }
+            .project-wrapper{
+                margin-bottom: 20px;
+                height: auto;
+                width: auto;
+            }
+            .anchor{
+                position: relative;
+                top: -15vh;
+            }
+            .exit{
+                position: relative;
+                right: 10px;
+                margin-left: auto;
+                top: -10px;
+                z-index: 999;
+            }
+            .open{
+                width: 96%;
+                padding-bottom: 100px;
+            }
+            .about{
+                padding: 10px;
+            }
+        }
+    }
+    .left-column{
+        height: 10%;
+        min-height: 0px;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        p{
+            position: static !important;
+        }
+        .short-brief{
+            display: none;
+        }
+        .get-out{
+            animation: none;
+        }
+        .get-in{
+            animation: none;
+        }
+        .paragraph{
+            display: none;
+        }
+        .paragraphReplica{
+            display: block !important;
+        }
+    }
+}

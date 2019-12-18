@@ -8,6 +8,7 @@
 
 .headline{
     text-align: center;
+    animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) 1s both;
 }
 
 .orange-marker{
@@ -18,4 +19,71 @@
     position: absolute;
     bottom: 20px;
     color: $purple;
+    animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.8s both, jello-horizontal 3.6s 2s infinite both;
 }
+
+
+@keyframes slide-in-top {
+    0% {
+      transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+@keyframes puff-in-center {
+    0% {
+      transform: scale(2);
+      filter: blur(4px);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
+  @keyframes jello-horizontal {
+    0% {
+      transform: scale3d(1, 1, 1);
+    }
+    7% {
+      transform: scale3d(1.25, 0.75, 1);
+    }
+    10% {
+      transform: scale3d(0.75, 1.25, 1);
+    }
+    12% {
+      transform: scale3d(1.15, 0.85, 1);
+    }
+    16% {
+      transform: scale3d(0.95, 1.05, 1);
+    }
+    18% {
+      transform: scale3d(1.05, 0.95, 1);
+    }
+    25% {
+      transform: scale3d(1, 1, 1);
+    }
+    100%{
+        transform: scale3d(1, 1, 1);
+    }
+  }
+
+  .left-hand{
+    position: absolute;
+    left: 0;
+    top: 20%;
+    height: 80%;
+  }
+
+  .right-hand{
+    position: absolute;
+    right: 0;
+    bottom: 20%;
+    height: 80%;
+  }
