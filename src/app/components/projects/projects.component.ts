@@ -13,7 +13,7 @@ export class ProjectsComponent implements OnInit {
   @ViewChild('paragraphReplica', {static:false}) paragraphReplica: ElementRef;
   isInfoOpen;
   src="../../../assets/videos/I-LOAD.webm";
-  constructor(private projectsService : ProjectsService) {
+  constructor(public projectsService : ProjectsService) {
     this.isInfoOpen = false;
   }
 
