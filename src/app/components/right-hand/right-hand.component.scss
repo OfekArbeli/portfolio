@@ -1,0 +1,213 @@
+@import '../../../mixins.scss';
+
+$palm-anchor-x: 80%;
+$palm-anchor-y: 60%;
+
+$thumb-base-anchor-x: 80%;
+$thumb-base-anchor-y: 23%;
+
+$thumb-top-anchor-x: 75%;
+$thumb-top-anchor-y: 60%;
+
+$finger-top-anchor-x: 86%;
+$finger-top-anchor-y: 27%;
+
+
+$middle-fingers-anchor-x: 72%;
+$middle-fingers-anchor-y: 30%;
+
+$pinky-anchor-x: 70%;
+$pinky-anchor-y: 15%;
+
+$finger-base-anchor-x: 80%;
+$finger-base-anchor-y: 30%;
+
+.palm-container{
+    position: absolute;
+    // border: 2px solid blue;
+    width: 16%;
+    right: 10%;
+    top: 16%;
+    transform-origin: $palm-anchor-x $palm-anchor-y;
+    transform: rotate(0deg);
+    .palm{
+        width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+    .arm{
+        // border: 2px solid green;
+        position: absolute;
+        top: -26%;
+        left: 36%;
+        width: 169%;
+    }
+    .thumb-container{
+        position: absolute;
+        // border: 2px solid red;
+        z-index: 4;
+        width: 97%;
+        bottom: 14%;
+        right: 17%;
+        transform-origin: $thumb-base-anchor-x $thumb-base-anchor-y; 
+        transform: rotate(0deg);
+        transition: 0.8s transform cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .thumb-base{
+        width: 100%;
+        position: relative;
+        transition: 0.8s transform cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .thumb-top{
+        position: absolute;
+        z-index: 1;
+        width: 45%;
+        right: 71%;
+        top: 48%;
+        transform-origin: $thumb-top-anchor-x $thumb-top-anchor-y;
+        transform: rotate(0deg);
+        transition: 0.8s transform cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .finger-container{
+        position: absolute;
+        z-index: 3;
+        bottom: 41%;
+        width: 112%;
+        left: -37%;
+        transform-origin: $finger-base-anchor-x $finger-base-anchor-y;
+        transform: rotate(0deg);
+        transition: 0.8s transform cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .finger-base{
+        width: 100%;
+        z-index: 2;
+        position: relative; 
+    }
+    .finger-top{
+        position: absolute;
+        top: 21%;
+        right: 87%;
+        width: 56%;
+        transform-origin: $finger-top-anchor-x $finger-top-anchor-y;
+        transform: rotate(0deg);
+        transition: 0.8s transform cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .middle-fingers{
+        position: absolute;
+        top: 50%;
+        right: 70%;
+        width: 58%;
+        z-index: 1;
+        transform-origin: $middle-fingers-anchor-x $middle-fingers-anchor-y;
+        transform: rotate(0deg);
+        transition: 0.8s transform cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .pinky{
+        position: absolute;
+        top: 83%;
+        right: 58%;
+        width: 27%;
+        transform-origin: $pinky-anchor-x $pinky-anchor-y;
+        transform: rotate(0deg);
+        transition: 0.8s transform cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+}
+
+.finger-pull{
+    .finger-container{
+        transform: rotate(4deg);
+    }
+    .finger-top{
+        transform: rotate(10deg);
+    }
+}
+
+.thumb-pull{
+    .thumb-container{
+        // transform: rotate(0deg);
+        transform: rotate(8deg);
+    }
+    .thumb-top{
+        // transform: rotate(-16deg);
+        transform: rotate(10deg);
+    }
+}
+
+.middle-finger-pull{
+    .middle-fingers{
+        transform: rotate(28deg);
+    }
+    .finger-container{
+        transform: rotate(4deg);
+    }
+    .pinky{
+        transform: rotate(24deg);
+    }
+}
+
+.pinky-pull{
+    .pinky{
+        transform: rotate(-20deg);
+    }
+    .middle-fingers{
+        transform: rotate(-8deg);
+    }
+    .finger-container{
+        transform: rotate(-2deg);
+    }
+    .thumb-container{
+        // transform: rotate(0deg);
+        transform: rotate(-4deg);
+    }
+}
+
+
+//!
+
+
+
+
+.finger-push{
+    .finger-container{
+        transform: rotate(10deg);
+    }
+    .finger-top{
+        transform: rotate(2deg);
+    }
+}
+
+.thumb-push{
+    .thumb-base{
+        // transform: rotate(0deg);
+        transform: rotate(1deg);
+    }
+    .thumb-top{
+        // transform: rotate(-16deg);
+        transform: rotate(9deg);
+    }
+}
+
+.middle-finger-push{
+    .middle-fingers{
+        transform: rotate(16deg);
+    }
+    .finger-container{
+        transform: rotate(8deg);
+    }
+    .pinky{
+        transform: rotate(12deg);
+    }
+}
+
+.pinky-push{
+    .pinky{
+        transform: rotate(-20deg);
+    }
+    .middle-fingers{
+        transform: rotate(-8deg);
+    }
+    .finger-container{
+        transform: rotate(0deg);
+    }
+}

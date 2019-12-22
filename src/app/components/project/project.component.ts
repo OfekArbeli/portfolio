@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { timeout } from 'q';
 import { ProjectsService } from 'src/app/services/projects.service';
+import { ScrollerService } from 'src/app/services/scroller.service';
 
 @Component({
   selector: 'app-project',
@@ -13,7 +14,7 @@ export class ProjectComponent implements OnInit, AfterViewInit{
   open;
   prograssStyle;
   fullScreen; 
-  constructor(private projectsService:ProjectsService) {
+  constructor(private projectsService:ProjectsService,private scrollerService:ScrollerService) {
     this.open = false;
     this.fullScreen = false;
     this.initprograssStyle()
@@ -34,7 +35,7 @@ export class ProjectComponent implements OnInit, AfterViewInit{
   openSection(element : HTMLElement){
     if(!this.open){
         this.open = true;
-        element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+        // element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
     }
   }
   closeProject(){
@@ -66,10 +67,14 @@ export class ProjectComponent implements OnInit, AfterViewInit{
   }
 
   setOnFullscreen(){
+    this.scrollerService.routerAvailable = false;
     this.videoRef.nativeElement.requestFullscreen();
   }
 
   checkIfFullscreenClosed(){
     this.fullScreen = !this.fullScreen;
+    if(!this.fullScreen){
+      this.scrollerService.routerAvailable = true;
+    }
   }
 }

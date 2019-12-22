@@ -1,2 +1,32 @@
 @import '../mixins.scss';
 
+
+.go-back-up{
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    @include center-center;
+    width: calc(30px + 1vw);
+    height: calc(30px + 1vw);
+    bottom: calc(20px + 1vw);
+    right: calc(20px + 1vw);
+    border-radius: 50%;
+    background-color: $light-orange;
+    color: $purple;
+    cursor: pointer;
+    &:hover{
+        background-color: $orange;
+    }
+}
+
+.show{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.hide{
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 0.8s, opacity 0.8s ease-in-out;
+}

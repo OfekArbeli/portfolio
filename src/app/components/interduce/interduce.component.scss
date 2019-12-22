@@ -7,9 +7,36 @@
 }
 
 .headline{
-    text-align: center;
     animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) 1s both;
+    h1, h2{
+      text-align: center;
+      transform-origin: 50% 100%;
+      transform: rotate(0deg);
+      transition: 0.8s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      bottom: 0;
+      left: 0;
+      padding: 0 20px 0 20px;
+      letter-spacing: 0em;
+      span{
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        transition: 0.8s all ease-in;
+        cursor: pointer;
+      }
+      .hide{
+        visibility: hidden;
+      }
+      .sub-title{
+        cursor: pointer;
+        position: absolute;
+      }
+    }
 }
+
 
 .orange-marker{
     background-color: $light-orange;
@@ -21,7 +48,10 @@
     color: $purple;
     animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.8s both, jello-horizontal 3.6s 2s infinite both;
 }
-
+.right-column{
+  overflow: hidden;
+  // background: radial-gradient($light-orange 0%, $white 70%);
+}
 
 @keyframes slide-in-top {
     0% {
@@ -74,16 +104,47 @@
     }
   }
 
-  .left-hand{
-    position: absolute;
-    left: 0;
-    top: 20%;
-    height: 80%;
+  // .left-hand{
+  //   position: absolute;
+  //   left: 0;
+  //   top: 20%;
+  //   height: 80%;
+  // }
+
+  // .right-hand{
+  //   position: absolute;
+  //   right: 0;
+  //   bottom: 20%;
+  //   height: 80%;
+  // }
+
+
+  .pullRight{
+    // transform-origin: 50% 100%;
+    transform: rotate(-14deg) !important;
+    span{
+      left: 0% !important;
+      transform: translateX(0) !important;
+    }
   }
 
-  .right-hand{
-    position: absolute;
-    right: 0;
-    bottom: 20%;
-    height: 80%;
+  .pullLeft{
+    bottom: 10px !important;
+    transform: rotate(10deg) !important;
+    span{
+      left: 100% !important;
+      transform: translateX(-100%) !important;
+    }
+  }
+
+  .hardPullRight{
+    // transform-origin: 50% 100%;
+    transform: rotate(8deg) !important;
+    bottom: 10px !important;
+    left: 20px !important;
+  }
+
+  .pullBoth{
+    bottom: 2px !important;
+    letter-spacing: 0.3em !important;
   }

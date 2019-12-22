@@ -35,6 +35,8 @@ import {
   MatCheckboxModule
 } from '@angular/material';
 import { BackgroundComponent } from './components/background/background.component';
+import { LeftHandComponent } from './components/left-hand/left-hand.component';
+import { RightHandComponent } from './components/right-hand/right-hand.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { BackgroundComponent } from './components/background/background.componen
     AboutMeComponent,
     TechnologyComponent,
     ContactMeComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    LeftHandComponent,
+    RightHandComponent
   ],
   imports: [
     BrowserAnimationsModule,

@@ -1,0 +1,21 @@
+
+    <div (mouseleave)="stopPulling()" [ngClass]="handPositions()">
+
+        <div class="thumb-container" (mouseenter)="pullThumb()">
+            <img class="thumb-top" src="../../../assets/images/left-hand/Thumb Top2.png">
+            <img class="thumb-base" src="../../../assets/images/left-hand/Thumb Base.png">
+        </div>
+
+        <div class="finger-container" (mouseenter)="pullFinger()">
+            <img class="finger-base" src="../../../assets/images/left-hand/Finger Base.png">
+            <img class="finger-top" src="../../../assets/images/left-hand/Finger Top.png">
+        </div>
+
+        <img class="palm" src="../../../assets/images/left-hand/Palm.png" (mouseenter)="openHand()">
+
+        <img class="middle-fingers" (mouseenter)="pullMiddleFingers()" 
+        src="../../../assets/images/left-hand/Middle Fingers2.png">
+
+        <img class="pinky" src="../../../assets/images/left-hand/Pinky.png" (mouseenter)="pullPinky()" >
+        <img class="arm" src="../../../assets/images/left-hand/Arm.png" (mouseenter)="closeHand()" >
+    </div>

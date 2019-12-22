@@ -1,11 +1,13 @@
 <!-- <app-background></app-background> -->
-<app-interduce class="section-container"></app-interduce>
-<app-about-me class="section-container"></app-about-me>
-<app-projects class="section-container"></app-projects>
-<app-contact-me class="section-container"></app-contact-me>
+<app-interduce class="section-container" id="home" #interduce></app-interduce>
+<app-about-me class="section-container" id="about-me" #aboutMe></app-about-me>
+<app-projects class="section-container" id="my-projects" #myProjects></app-projects>
+<app-contact-me class="section-container" id="contact-me" #contactMe></app-contact-me>
 <!-- <app-project projectName="i-load"></app-project>
 <div class="fake-content"></div> -->
-
+<div [ngClass]="['go-back-up',goUpButtonShow?'show':'hide']" (click)="scrollTop()">
+    <i class="fas fa-angle-up"></i>
+</div>
 
 
 <!-- <router-outlet></router-outlet> -->
